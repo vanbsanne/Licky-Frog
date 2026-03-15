@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bdqqfpw3vl6n"]
+
+[ext_resource type="PackedScene" uid="uid://dvpbog5qqoom1" path="res://scenes/frog.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://c2amgpw55lj1g" path="res://scenes/fly.tscn" id="2_yqjtg"]
+
+[node name="Game" type="Node2D" unique_id=489946893]
+
+[node name="Fly" parent="." unique_id=1003039800 instance=ExtResource("2_yqjtg")]
+position = Vector2(123, -103)
+
+[node name="Frog" parent="." unique_id=1099146032 instance=ExtResource("1_uwrxv")]
+position = Vector2(1, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Frog" unique_id=554463517]
+offset = Vector2(0, -50)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true

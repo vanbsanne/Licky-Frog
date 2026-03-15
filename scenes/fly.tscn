@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c2amgpw55lj1g"]
+
+[ext_resource type="Texture2D" uid="uid://hc853ojdei5s" path="res://Assets/Insects/BeetleMove.png" id="1_djddo"]
+[ext_resource type="Script" uid="uid://cm3t362oycfx7" path="res://scenes/fly.gd" id="1_xr3pu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr3pu"]
+atlas = ExtResource("1_djddo")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lkvx"]
+atlas = ExtResource("1_djddo")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgyng"]
+atlas = ExtResource("1_djddo")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qovp"]
+atlas = ExtResource("1_djddo")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eyt7k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr3pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lkvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgyng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qovp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_djddo"]
+radius = 6.0
+
+[node name="Fly" type="CharacterBody2D" unique_id=252813449]
+script = ExtResource("1_xr3pu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=523345513]
+sprite_frames = SubResource("SpriteFrames_eyt7k")
+autoplay = "default"
+frame = 2
+frame_progress = 0.65550876
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=24118694]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_djddo")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=934489620]
+
+[node name="Timer" type="Timer" parent="." unique_id=2096200148]
+wait_time = 1.5
+autostart = true
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
