@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://bdqqfpw3vl6n"]
 
+[ext_resource type="Texture2D" uid="uid://u8847dnouo1e" path="res://Assets/Backgrounds/New Piskel(1).png" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dvpbog5qqoom1" path="res://scenes/frog.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://c2amgpw55lj1g" path="res://scenes/fly.tscn" id="2_yqjtg"]
 
 [node name="Game" type="Node2D" unique_id=489946893]
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1619652579]
+position = Vector2(1.5, -48.75)
+scale = Vector2(1.445, 1.4469026)
+texture = ExtResource("1_lnu2h")
+
 [node name="Fly" parent="." unique_id=1003039800 instance=ExtResource("2_yqjtg")]
 position = Vector2(123, -103)
 
 [node name="Frog" parent="." unique_id=1099146032 instance=ExtResource("1_uwrxv")]
+z_index = 5
 position = Vector2(1, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Frog" unique_id=554463517]
